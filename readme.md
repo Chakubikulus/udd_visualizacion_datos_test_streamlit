@@ -1,63 +1,137 @@
-# Annual CO₂ emissions - Data package
+# 🌍 Visualización de Emisiones de CO₂ Global
 
-This data package contains the data that powers the chart ["Annual CO₂ emissions"](https://ourworldindata.org/grapher/annual-co2-emissions-per-country?v=1&csvType=full&useColumnShortNames=false) on the Our World in Data website. It was downloaded on November 14, 2025.
+Aplicación web interactiva desarrollada con Streamlit para visualizar y analizar las emisiones de CO₂ por país a lo largo del tiempo.
 
-### Active Filters
+## 📋 Descripción
 
-A filtered subset of the full data was downloaded. The following filters were applied:
+Esta aplicación convierte el análisis del notebook de Jupyter en una aplicación web interactiva que permite:
 
-## CSV Structure
+- 📈 Visualizar series temporales de emisiones por país
+- 🏆 Explorar rankings de países por año
+- 📊 Analizar emisiones acumuladas
+- 🌐 Comparar tendencias globales con los top 10 países
+- 🗺️ Explorar un mapa animado de emisiones
 
-The high level structure of the CSV file is that each row is an observation for an entity (usually a country or region) and a timepoint (usually a year).
+## 🚀 Instalación
 
-The first two columns in the CSV file are "Entity" and "Code". "Entity" is the name of the entity (e.g. "United States"). "Code" is the OWID internal entity code that we use if the entity is a country or region. For normal countries, this is the same as the [iso alpha-3](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3) code of the entity (e.g. "USA") - for non-standard countries like historical countries these are custom codes.
+### Requisitos previos
 
-The third column is either "Year" or "Day". If the data is annual, this is "Year" and contains only the year as an integer. If the column is "Day", the column contains a date string in the form "YYYY-MM-DD".
+- Python 3.8 o superior
+- pip (gestor de paquetes de Python)
 
-The final column is the data column, which is the time series that powers the chart. If the CSV data is downloaded using the "full data" option, then the column corresponds to the time series below. If the CSV data is downloaded using the "only selected data visible in the chart" option then the data column is transformed depending on the chart type and thus the association with the time series might not be as straightforward.
+### Pasos de instalación
 
-## Metadata.json structure
+1. **Clonar o descargar el repositorio**
 
-The .metadata.json file contains metadata about the data package. The "charts" key contains information to recreate the chart, like the title, subtitle etc.. The "columns" key contains information about each of the columns in the csv, like the unit, timespan covered, citation for the data etc..
+```bash
+git clone <url-del-repositorio>
+cd udd_visualizacion_datos_test_streamlit
+```
 
-## About the data
+2. **Crear un entorno virtual (recomendado)**
 
-Our World in Data is almost never the original producer of the data - almost all of the data we use has been compiled by others. If you want to re-use data, it is your responsibility to ensure that you adhere to the sources' license and to credit them correctly. Please note that a single time series may have more than one source - e.g. when we stich together data from different time periods by different producers or when we calculate per capita metrics using population data from a second source.
+```bash
+python -m venv venv
+```
 
-## Detailed information about the data
+**Windows:**
+```bash
+venv\Scripts\activate
+```
 
+**Linux/Mac:**
+```bash
+source venv/bin/activate
+```
 
-## Annual CO₂ emissions
-Annual total emissions of carbon dioxide (CO₂), excluding land-use change, measured in tonnes.
-Last updated: November 13, 2025  
-Next update: November 2026  
-Date range: 1750–2024  
-Unit: tonnes  
+3. **Instalar las dependencias**
 
+```bash
+pip install -r requirements.txt
+```
 
-### How to cite this data
+## 📁 Estructura de Datos
 
-#### In-line citation
-If you have limited space (e.g. in data visualizations), you can use this abbreviated in-line citation:  
-Global Carbon Budget (2025) – with major processing by Our World in Data
+Asegúrate de que los archivos de datos estén organizados de la siguiente manera:
 
-#### Full citation
-Global Carbon Budget (2025) – with major processing by Our World in Data. “Annual CO₂ emissions” [dataset]. Global Carbon Project, “Global Carbon Budget v15” [original data].
-Source: Global Carbon Budget (2025) – with major processing by Our World In Data
+```
+udd_visualizacion_datos_test_streamlit/
+├── app.py
+├── requirements.txt
+├── README.md
+└── data/
+    ├── ne_50m_admin_0_countries/
+    │   └── ne_50m_admin_0_countries.shp
+    └── annual-co2-emissions-per-country.csv
+```
 
-### What you should know about this data
-* This data is based on territorial emissions, meaning the emissions produced within a country's borders, but not those from imported goods. For example, emissions from imported steel are counted in the country where the steel is produced. To learn more and look at emissions adjusted for trade, read our article: [How do CO₂ emissions compare when we adjust for trade?](https://ourworldindata.org/consumption-based-co2)
-* Emissions from international aviation and shipping are not included in the data for any individual country or region. They are only counted in the global total.
+**Nota:** El shapefile de Natural Earth puede incluir varios archivos (.shp, .shx, .dbf, etc.). Todos deben estar en la carpeta `ne_50m_admin_0_countries/`.
 
-### Source
+## ▶️ Ejecución
 
-#### Global Carbon Project – Global Carbon Budget
-Retrieved on: 2025-11-13  
-Retrieved from: https://globalcarbonbudget.org/  
+Para ejecutar la aplicación, usa el siguiente comando:
 
-#### Notes on our processing step for this indicator
-- Global emissions are converted from tonnes of carbon to tonnes of carbon dioxide (CO₂) using a factor of 3.664. This is the conversion factor [recommended by the Global Carbon Project](https://globalcarbonbudgetdata.org/downloads/jGJH0-data/Global+Carbon+Budget+v2024+Dataset+Descriptions.pdf). It reflects that one tonne of carbon, when fully oxidized, forms 3.664 tonnes of CO₂, based on the relative molecular weights of carbon and oxygen in CO₂.
-- Emissions from the 1991 Kuwaiti oil fires are included in Kuwait's emissions for that year.
+```bash
+streamlit run app.py
+```
 
+La aplicación se abrirá automáticamente en tu navegador en `http://localhost:8501`
 
-    
+## 📊 Funcionalidades
+
+### 1. Serie Temporal
+- Selecciona cualquier país para ver su evolución de emisiones
+- Visualiza métricas clave (emisiones actuales, históricas, máximas)
+
+### 2. Ranking por Año
+- Explora el top 15 de países emisores por año
+- Usa el slider para navegar entre diferentes años
+- Visualiza datos en tabla y gráfico de barras
+
+### 3. Emisiones Acumuladas
+- Analiza las emisiones acumuladas de cualquier país
+- Visualiza el crecimiento histórico de emisiones
+
+### 4. Tendencia Global
+- Compara la tendencia global con los 10 países más emisores
+- Explora las diferencias entre países y la tendencia mundial
+
+### 5. Mapa Animado
+- Visualiza las emisiones en un mapa mundial interactivo
+- Usa la animación para ver la evolución temporal
+- Explora diferentes países haciendo hover sobre el mapa
+
+## 🛠️ Tecnologías Utilizadas
+
+- **Streamlit**: Framework para aplicaciones web
+- **Plotly**: Visualizaciones interactivas
+- **Pandas**: Manipulación de datos
+- **GeoPandas**: Procesamiento de datos geoespaciales
+
+## 📝 Notas
+
+- Los datos se cargan con caché para mejorar el rendimiento
+- La aplicación es responsive y se adapta a diferentes tamaños de pantalla
+- Todas las visualizaciones son interactivas
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor:
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto es de uso educativo.
+
+## 📧 Contacto
+
+Para preguntas o sugerencias, por favor abre un issue en el repositorio.
+
+---
+
+**Desarrollado con ❤️ usando Streamlit**
