@@ -581,13 +581,13 @@ with tab5:
             labels={'co2': 'CO₂ (toneladas)', 'year': 'Año'}
         )
         
+        fig_map_anim.update_geos(
+            showcountries=True, 
+            showcoastlines=True,
+            showframe=False,
+            bgcolor='rgba(0,0,0,0)'
+        )
         fig_map_anim.update_layout(
-            geo=dict(
-                showcountries=True, 
-                showcoastlines=True,
-                showframe=False,
-                bgcolor='rgba(0,0,0,0)'
-            ),
             height=700,
             coloraxis_colorbar=dict(
                 title="CO₂ (toneladas)",
@@ -626,13 +626,13 @@ with tab5:
             labels={'co2': 'CO₂ (toneladas)'}
         )
         
+        fig_map_static.update_geos(
+            showcountries=True, 
+            showcoastlines=True,
+            showframe=False,
+            bgcolor='rgba(0,0,0,0)'
+        )
         fig_map_static.update_layout(
-            geo=dict(
-                showcountries=True, 
-                showcoastlines=True,
-                showframe=False,
-                bgcolor='rgba(0,0,0,0)'
-            ),
             height=700,
             coloraxis_colorbar=dict(
                 title="CO₂ (toneladas)",
