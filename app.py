@@ -98,16 +98,6 @@ with st.sidebar:
     st.markdown("---")
     st.markdown("### Navegación")
     st.markdown("Usa las pestañas arriba para explorar diferentes visualizaciones")
-    
-    st.markdown("---")
-    st.markdown("### Búsqueda Rápida")
-    search_country = st.selectbox(
-        "Buscar país:",
-        options=[""] + countries,
-        index=0
-    )
-    if search_country:
-        st.info(f"País seleccionado: **{search_country}**")
 
 # ============================================
 # TABS PARA DIFERENTES VISUALIZACIONES
@@ -694,7 +684,7 @@ with st.expander("Metodología y Decisiones de Diseño", expanded=False):
     
     ### Consideraciones
     - Algunos países pueden tener datos incompletos en ciertos períodos
-    
+
     """)
 
 # ============================================
