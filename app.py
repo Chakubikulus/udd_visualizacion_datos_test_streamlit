@@ -589,10 +589,7 @@ with tab5:
         )
         fig_map_anim.update_layout(
             height=700,
-            coloraxis_colorbar=dict(
-                title="CO₂ (toneladas)",
-                titlefont=dict(size=12)
-            )
+            coloraxis=dict(colorbar=dict(title="CO₂ (toneladas)"))
         )
         
         # Ajustar velocidad de animación
@@ -634,10 +631,7 @@ with tab5:
         )
         fig_map_static.update_layout(
             height=700,
-            coloraxis_colorbar=dict(
-                title="CO₂ (toneladas)",
-                titlefont=dict(size=12)
-            )
+            coloraxis=dict(colorbar=dict(title="CO₂ (toneladas)"))
         )
         
         st.plotly_chart(fig_map_static, use_container_width=True)
