@@ -92,8 +92,7 @@ with st.sidebar:
     st.caption("""
     **Fuente:** Our World in Data - Global Carbon Budget  
     **Unidad:** Toneladas de CO₂  
-    **Alcance:** Emisiones territoriales (dentro de fronteras)  
-    **Nota:** No incluye emisiones de aviación/shipping internacional
+    **Alcance:** Emisiones territoriales
     """)
     
     st.markdown("---")
@@ -258,8 +257,8 @@ with tab2:
     **Visualización:** Gráfico de barras horizontales  
     **Marca:** Barras rectangulares  
     **Canal visual:** Longitud de barra (magnitud), posición vertical (ranking)  
-    **Justificación:** Las barras horizontales facilitan la lectura de nombres de países y la comparación de magnitudes. 
-    La longitud codifica la cantidad de emisiones, permitiendo identificar rápidamente los mayores emisores.
+    **Justificación:** Las barras horizontales ayudan a la lectura de nombres de países y la comparación de emisiones. 
+    La longitud muestra la cantidad de emisiones, permitiendo identificar rápidamente los mayores emisores.
     """)
     
     col1, col2 = st.columns([2, 1])
@@ -362,8 +361,8 @@ with tab3:
     **Visualización:** Gráfico de área  
     **Marca:** Área bajo curva  
     **Canal visual:** Área (magnitud acumulada), posición en eje X (tiempo)  
-    **Justificación:** El gráfico de área enfatiza la acumulación total de emisiones a lo largo del tiempo. 
-    El área bajo la curva representa visualmente la contribución histórica total de un país a las emisiones globales.
+    **Justificación:** El gráfico de área muestra la acumulación total de emisiones a lo largo del tiempo. 
+    El área bajo la curva representa la contribución total de un país a las emisiones globales.
     """)
     
     selected_country_cum = st.selectbox(
@@ -655,12 +654,9 @@ with tab5:
         - **Concentración regional:** Ciertas regiones mantienen altos niveles de emisiones históricamente
         
         **Interpretación:** El mapa coroplético permite identificar visualmente:
-        1. **Regiones de alto impacto:** Áreas con colores más intensos (rojos oscuros)
+        1. **Regiones de alto impacto:** Áreas con colores más intensos
         2. **Cambios temporales:** Cómo se desplazan los focos de emisión a lo largo del tiempo
-        3. **Desigualdad espacial:** La concentración geográfica de emisiones refleja patrones de desarrollo económico e industrial
-        
-        La visualización espacial complementa los análisis temporales y de ranking, proporcionando una perspectiva 
-        geográfica única sobre la distribución global de emisiones de CO₂.
+        3. **Desigualdad espacial:** La concentración geográfica de emisiones refleja patrones de desarrollo económico
         """)
 
 # ============================================
@@ -674,7 +670,7 @@ with st.expander("Metodología y Decisiones de Diseño", expanded=False):
     #### 1. Serie Temporal (Línea)
     - **Marca:** Línea continua
     - **Canales:** Posición Y (magnitud), Posición X (tiempo)
-    - **Razón:** Permite identificar tendencias, quiebres y patrones de crecimiento/declive de manera efectiva
+    - **Razón:** Permite identificar tendencias, quiebres y patrones de crecimiento de manera rápida
     
     #### 2. Ranking por Año (Barras Horizontales)
     - **Marca:** Barras rectangulares
@@ -686,7 +682,7 @@ with st.expander("Metodología y Decisiones de Diseño", expanded=False):
     - **Canales:** Área (magnitud acumulada), Posición X (tiempo)
     - **Razón:** Enfatiza la contribución histórica total, visualizando el impacto acumulado
     
-    #### 4. Tendencia Global (Múltiples Líneas)
+    #### 4. Tendencia Global (Líneas)
     - **Marca:** Líneas de diferentes colores
     - **Canales:** Posición Y (magnitud), Color (identificación), Posición X (tiempo)
     - **Razón:** Permite comparación simultánea entre tendencia global y países individuales
@@ -696,11 +692,9 @@ with st.expander("Metodología y Decisiones de Diseño", expanded=False):
     - **Canales:** Color (intensidad), Posición geográfica (ubicación), Tiempo (animación)
     - **Razón:** Revela patrones espaciales y cambios geográficos en las emisiones
     
-    ### Limitaciones y Consideraciones
-    - Los datos representan emisiones **territoriales** (dentro de fronteras), no incluyen emisiones de bienes importados
-    - No incluyen emisiones de aviación/shipping internacional
+    ### Consideraciones
     - Algunos países pueden tener datos incompletos en ciertos períodos
-    - Las escalas de color pueden variar entre visualizaciones para optimizar la legibilidad
+    
     """)
 
 # ============================================
