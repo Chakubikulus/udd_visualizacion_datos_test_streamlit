@@ -103,7 +103,9 @@ La aplicación se abrirá automáticamente en tu navegador en `http://localhost:
 
 
 
-
+Integrantes:
+Diego Morales Valenzuela
+Ivan Peters
 
 
 
